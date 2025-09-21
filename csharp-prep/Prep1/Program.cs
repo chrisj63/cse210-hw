@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
+       
+       // Bond, James Bond program written by Chris Johnson 9/20/2025
+
         string firstName;
         string lastName;
         Console.Write("What is your first name?");
