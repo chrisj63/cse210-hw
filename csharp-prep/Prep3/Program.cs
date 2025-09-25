@@ -10,7 +10,7 @@ class Program
         string playAgain = "yes";
         do
         {
-            Console.WriteLine("A magic number between 1 and 100 has been selected?");
+            Console.WriteLine("A magic whole number between 1 and 100 has been selected?");
 
             Random randomGenerator = new Random();
             int magicNumber = randomGenerator.Next(1, 101);
