@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
 
-        // Guess the magic number program written by Chris Johnson 9/24/25
+        // Functions program written by Chris Johnson 9/26/25
 
         DisplayMessage();
         string name = PromptUserName();
