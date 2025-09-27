@@ -7,7 +7,6 @@ class Program
         // Series of Numbers by Chris Johnson 9/26/25
 
 
-        //string textFromUser = "10";
         int numberFromUser = 1;
         double numberTotal = 0;
         double numberAverage = 0;
@@ -15,7 +14,6 @@ class Program
         int numberMaximum = 0;
         int numberPositiveMinimum = 100;
         int numberCount = 1;
-        // string continueGame no;
         List<int> numbers;
         numbers = new List<int>();
 
