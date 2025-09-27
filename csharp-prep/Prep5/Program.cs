@@ -9,15 +9,10 @@ class Program
 
         DisplayMessage();
         string name = PromptUserName();
-        //Console.WriteLine($"Your Name is: {name}.");
         int favNumber = PromptFavoriteNumber();
-        //Console.WriteLine($"Your Favorite number is: {favNumber}.");
         int birthYear = PromptBirthYear();
-       // Console.WriteLine($"Your Birth Year is: {birthYear}.");
         int squareNumber = SquareInteger(favNumber);
-       // Console.WriteLine($"The square of your number is: {squareNumber}.");
         int yourAge = AgeInteger(birthYear);
-        //Console.WriteLine($"Your age this year is: {yourAge}.");
         DisplaySummary(name, squareNumber, yourAge);
 
         static void DisplayMessage()
