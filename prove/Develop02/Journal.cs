@@ -16,13 +16,13 @@ public class Journal
         //  An entries List variable holds all the journal entries.
         //  A file myJournal.txt holds the journal entries for long term storage. (\cse210-hw\prove\Develop02\bin\Debug\net8.0>
 
-        string textFromUser;
-        string nextEntry;
-        string filename = "myJournal.txt";
-        int userChoice = 0;       
-        List<string> entries = new List<string>();
+        string _textFromUser;
+        string _nextEntry;
+        string _filename = "myJournal.txt";
+        int _userChoice = 0;       
+        List<string> _entries = new List<string>();
        
-		while (userChoice !=5)
+		while (_userChoice !=5)
         {
             Console.WriteLine("Welcome to the Journal Program!");
 			Console.WriteLine("Please select one of the following choices:");
@@ -32,16 +32,16 @@ public class Journal
 			Console.WriteLine("4. Save");
 			Console.WriteLine("5. Quit");
 			Console.Write("What would you like to do?  ");
-            textFromUser = Console.ReadLine();
-            userChoice = int.Parse(textFromUser);
+            _textFromUser = Console.ReadLine();
+            _userChoice = int.Parse(_textFromUser);
                 	
-				switch(userChoice)
+				switch(_userChoice)
 				{
                 case 1:
                    
                         Entry e1 = new Entry();
-                        nextEntry = e1.GetEntry();
-                        entries.Add($"{nextEntry} ");
+                        _nextEntry = e1.GetEntry();
+                        _entries.Add($"{_nextEntry} ");
                         Console.WriteLine();
                         
                     break;
@@ -49,9 +49,9 @@ public class Journal
                 case 2:
                         Console.WriteLine();
 
-                        foreach (string entry in entries)
+                        foreach (string _entry in _entries)
                         {
-                            Console.WriteLine(entry);
+                            Console.WriteLine(_entry);
                         }
                         
                         Console.WriteLine();
@@ -61,10 +61,10 @@ public class Journal
 				case 3:
                         Console.WriteLine();
 
-                        string[] lines = System.IO.File.ReadAllLines(filename);
-                            foreach (string line in lines)
+                        string[] _lines = System.IO.File.ReadAllLines(_filename);
+                            foreach (string _line in _lines)
                                 {
-                                    entries.Add($"{line}");
+                                    _entries.Add($"{_line}");
                                 }
 
                         Console.WriteLine("LoadFunction");
@@ -75,11 +75,11 @@ public class Journal
 				case 4:
                         Console.WriteLine();
 
-                    using (StreamWriter outputFile = File.AppendText(filename))
+                    using (StreamWriter outputFile = File.AppendText(_filename))
                     {
-                        foreach (string entry in entries)
+                        foreach (string _entry in _entries)
                             {
-                                outputFile.WriteLine($"{entry}");
+                                outputFile.WriteLine($"{_entry}");
                             }
                     }
                         

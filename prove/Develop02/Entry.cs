@@ -13,33 +13,33 @@ public class Entry
         // This method organizes the date, prompt, and entry into a string variable textline and returns it to the calling function.
 
 
-        string textJournal;
-        string textLine;
-        string currentQuote;
-        string filename2 = "myPrompts.txt";
+        string _textJournal;
+        string _textLine;
+        string _currentQuote;
+        string _filename2 = "myPrompts.txt";
         DateTime theCurrentTime = DateTime.Now;
-        string currentDate = theCurrentTime.ToShortDateString();
-        List<string> quotes = new List<string>();
+        string _currentDate = theCurrentTime.ToShortDateString();
+        List<string> _quotes = new List<string>();
         Random random = new Random();
-        int wheel = 1;
+        int _wheel = 1;
 
-            string[] qlines = System.IO.File.ReadAllLines(filename2);
-            foreach (string qline in qlines)
+            string[] _qlines = System.IO.File.ReadAllLines(_filename2);
+            foreach (string _qline in _qlines)
             {
-                quotes.Add($"{qline}");
+                _quotes.Add($"{_qline}");
             }
        
-            wheel = random.Next(1, 21);
+            _wheel = random.Next(1, 21);
 
             Console.WriteLine();
-            currentQuote = quotes[wheel];
-            Console.WriteLine($"{currentQuote}");
-            Console.WriteLine($"{currentDate} Type Jurnal entry here.");
+            _currentQuote = _quotes[_wheel];
+            Console.WriteLine($"{_currentQuote}");
+            Console.WriteLine($"{_currentDate} Type Jurnal entry here.");
             Console.Write(">  ");
-            textJournal = Console.ReadLine();
-            textLine = ($"{currentDate} {currentQuote} : {textJournal}");
+            _textJournal = Console.ReadLine();
+            _textLine = ($"{_currentDate} {_currentQuote} : {_textJournal}");
             Console.WriteLine();
         
-        return textLine;
+        return _textLine;
     }
 }
