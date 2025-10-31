@@ -14,7 +14,7 @@ public class Journal
         //  It loops through completing different cases based on the user choice 1-5.
         //  All cases are handled in this method except the Write choice which is handled in the Entry class.
         //  An entries List variable holds all the journal entries.
-        //  A file myJournal.txt holds the journal entries for long term storage. (\cse210-hw\prove\Develop02\bin\Debug\net8.0>
+        //  A file myJournal.txt holds the journal entries for long term storage. (C:\vscodeCsharp\cse210-hw\prove\Develop02\myJournal.txt)
 
         string _textFromUser;
         string _nextEntry;
