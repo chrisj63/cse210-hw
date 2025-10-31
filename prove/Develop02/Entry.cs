@@ -16,7 +16,7 @@ public class Entry
         string _textJournal;
         string _textLine;
         string _currentQuote;
-        string _filename2 = "myPrompts.txt";
+        string _filename2 = "C:\\vscodeCsharp\\cse210-hw\\prove\\Develop02\\myPrompts.txt";
         DateTime theCurrentTime = DateTime.Now;
         string _currentDate = theCurrentTime.ToShortDateString();
         List<string> _quotes = new List<string>();

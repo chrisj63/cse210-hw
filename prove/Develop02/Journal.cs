@@ -18,7 +18,7 @@ public class Journal
 
         string _textFromUser;
         string _nextEntry;
-        string _filename = "myJournal.txt";
+        string _filename = "C:\\vscodeCsharp\\cse210-hw\\prove\\Develop02\\myJournal.txt";
         int _userChoice = 0;       
         List<string> _entries = new List<string>();
        
