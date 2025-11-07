@@ -1,0 +1,7 @@
+10/30/2025 What ancestor did you think about today? : I thought about my mom who passed in 2012.  This is the first entry that will create a myjournal.txt file.  This will then be seen in my github site in the base program folder. 
+11/4/2025 Did you eat ice cream today? Why or why not? : Not yet, but I will 
+11/4/2025 Did you happen to smile today? : Just twice 
+10/30/2025 What ancestor did you think about today? : I thought about my mom who passed in 2012.  This is the first entry that will create a myjournal.txt file.  This will then be seen in my github site in the base program folder. 
+11/4/2025 Did you eat ice cream today? Why or why not? : Not yet, but I will 
+11/4/2025 Did you happen to smile today? : Just twice 
+11/4/2025 What special day in your life would you like to remember? : Today 
