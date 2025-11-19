@@ -4,37 +4,35 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 
-public class Journal
+public class Reference
 {
 
-        string _journalEntryFilename = "C:\\vscodeCsharp\\cse210-hw\\prove\\Develop02\\myJournal.txt";
-        string _promptFilename = "C:\\vscodeCsharp\\cse210-hw\\prove\\Develop02\\myPrompts.txt";
-        List<string> _prompts = new List<string>();
-        List<string> _entries = new List<string>();
-   
-     public void DisplayMenu()
+/*
+    public void DisplayMenu()
     {
 
-        //  This is the DisplayMenu method of the Program class.
+        //  This is the DisplayMenu method of the Journal class.
         //  It loops through completing different cases based on the user choice 1-5.
-        //  All cases are handled in this method.
+        //  All cases are handled in this method except the Write choice which is handled in the Entry class.
         //  An entries List variable holds all the journal entries.
         //  A file myJournal.txt holds the journal entries for long term storage. (C:\vscodeCsharp\cse210-hw\prove\Develop02\myJournal.txt)
 
         string _textFromUser;
         string _nextEntry;
+        string _filename = "C:\\vscodeCsharp\\cse210-hw\\prove\\Develop02\\myJournal.txt";
         int _userChoice = 0;
-       
-		while (_userChoice !=5)
+        List<string> _entries = new List<string>();
+
+        while (_userChoice != 5)
         {
             Console.WriteLine("Welcome to the Journal Program!");
-			Console.WriteLine("Please select one of the following choices:");
-			Console.WriteLine("1. Write");
-			Console.WriteLine("2. Display");
-			Console.WriteLine("3. Load");
-			Console.WriteLine("4. Save");
-			Console.WriteLine("5. Quit");
-			Console.Write("What would you like to do?  ");
+            Console.WriteLine("Please select one of the following choices:");
+            Console.WriteLine("1. Write");
+            Console.WriteLine("2. Display");
+            Console.WriteLine("3. Load");
+            Console.WriteLine("4. Save");
+            Console.WriteLine("5. Quit");
+            Console.Write("What would you like to do?  ");
             _textFromUser = Console.ReadLine();
             _userChoice = int.Parse(_textFromUser);
 
@@ -42,10 +40,9 @@ public class Journal
             {
                 case 1:
 
-                    _nextEntry =WriteEntry();
+                    Entry e1 = new Entry();
+                    _nextEntry = e1.GetEntry();
                     _entries.Add($"{_nextEntry} ");
-                    Console.WriteLine();
-                    Console.WriteLine(_entries[0]);
                     Console.WriteLine();
 
                     break;
@@ -59,13 +56,13 @@ public class Journal
                     }
 
                     Console.WriteLine();
-                    
+
                     break;
 
                 case 3:
                     Console.WriteLine();
 
-                    string[] _lines = System.IO.File.ReadAllLines(_journalEntryFilename);
+                    string[] _lines = System.IO.File.ReadAllLines(_filename);
                     foreach (string _line in _lines)
                     {
                         _entries.Add($"{_line}");
@@ -79,7 +76,7 @@ public class Journal
                 case 4:
                     Console.WriteLine();
 
-                    using (StreamWriter outputFile = File.AppendText(_journalEntryFilename))
+                    using (StreamWriter outputFile = File.AppendText(_filename))
                     {
                         foreach (string _entry in _entries)
                         {
@@ -108,48 +105,9 @@ public class Journal
 
                     break;
             }
-   
         }
-    }
-
-    public string WriteEntry()
-    {
-        string _textJournal;
-        string _textLine;
-        string _currentPrompt;
-        DateTime theCurrentTime = DateTime.Now;
-        string _currentDate = theCurrentTime.ToShortDateString();
-        Random _random = new Random();
-        int _wheel;
-
-            string[] _qlines = System.IO.File.ReadAllLines(_promptFilename);
-            foreach (string _qline in _qlines)
-            {
-                _prompts.Add($"{_qline}");
-            }
-       
-            _wheel = _random.Next(1, 21);
-
-            Console.WriteLine();
-            _currentPrompt = _prompts[_wheel];
-            Console.WriteLine($"{_currentPrompt}");
-            Console.WriteLine($"{_currentDate} Type journal entry here.");
-            Console.Write(">  ");
-            _textJournal = Console.ReadLine();
-            Entry e1 = new Entry();
-            e1._currentDate = _currentDate;
-            e1._currentPrompt = _currentPrompt;
-            e1._myJournalResponse = _textJournal;
-            _textLine = e1.GetEntry();
-            Console.WriteLine();
-        
-        return _textLine;
-
-    }
-    
-}
-
-  
+    } */
+}  
 							
 			
 

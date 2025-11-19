@@ -7,8 +7,8 @@ using System.Security.Cryptography.X509Certificates;
 public class Journal
 {
 
-        string _journalEntryFilename = "C:\\vscodeCsharp\\cse210-hw\\prove\\Develop02\\myJournal.txt";
-        string _promptFilename = "C:\\vscodeCsharp\\cse210-hw\\prove\\Develop02\\myPrompts.txt";
+        string _journalEntryFilename = "C:\\vscodeCsharp\\cse210-hw\\prove\\Develop05\\myJournal.txt";
+        string _promptFilename = "C:\\vscodeCsharp\\cse210-hw\\prove\\Develop05\\myPrompts.txt";
         List<string> _prompts = new List<string>();
         List<string> _entries = new List<string>();
    
@@ -19,7 +19,7 @@ public class Journal
         //  It loops through completing different cases based on the user choice 1-5.
         //  All cases are handled in this method.
         //  An entries List variable holds all the journal entries.
-        //  A file myJournal.txt holds the journal entries for long term storage. (C:\vscodeCsharp\cse210-hw\prove\Develop02\myJournal.txt)
+        //  A file myJournal.txt holds the journal entries for long term storage. (C:\vscodeCsharp\cse210-hw\prove\Develop05\myJournal.txt)
 
         string _textFromUser;
         string _nextEntry;
