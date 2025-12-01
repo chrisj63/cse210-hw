@@ -8,13 +8,11 @@ public class Scripture
 {
 
         string _nextEntry;
-        string _filename1 = "C:\\vscodeCsharp\\cse210-hw\\prove\\Develop03\\scripture.txt";
-        string _filename2 = "C:\\vscodeCsharp\\cse210-hw\\prove\\Develop03\\reference.txt";
-        int _localUserChoice;
-        string _scriptureReference;
+        string _textScripture = "C:\\vscodeCsharp\\cse210-hw\\prove\\Develop03\\scripture.txt";
+        string _textReference = "C:\\vscodeCsharp\\cse210-hw\\prove\\Develop03\\reference.txt";
+        public string _scriptureReference;
         List<string> _scriptureWords = new List<string>();
-        
-         List<string> _scriptureWordsVisible = new List<string>();
+        List<string> _scriptureWordsVisible = new List<string>();
     public void ProcessChoice(int _userChoice)
     {
 
@@ -26,7 +24,7 @@ public class Scripture
         //  A file reference.txt holds the scripture reference entry for long term storage. (C:\vscodeCsharp\cse210-hw\prove\Develop03\reference.txt)
 
 
-        _localUserChoice = _userChoice;
+        int _localUserChoice = _userChoice;
 
 
         switch (_localUserChoice)
@@ -35,7 +33,7 @@ public class Scripture
 
                 Console.WriteLine();
 
-                string[] _lines = System.IO.File.ReadAllLines(_filename1);
+                string[] _lines = System.IO.File.ReadAllLines(_textScripture);
                 foreach (string _line in _lines)
                 {
                     _scriptureWords.Add($"{_line}");
@@ -69,14 +67,14 @@ public class Scripture
                 
                 Console.WriteLine();
 
-                string[] _texts = System.IO.File.ReadAllLines(_filename2);
+                string[] _texts = System.IO.File.ReadAllLines(_textReference);
                 foreach (string _text in _texts)
                 {
                     _scriptureReference = _text;
                 }
 
                 Console.WriteLine();
-                Console.WriteLine("Get Scripture Reference Function " + _scriptureReference + " .");
+                Console.WriteLine("Get Scripture Reference Function : " + _scriptureReference + " .");
                 Console.WriteLine();
 
                 break;
