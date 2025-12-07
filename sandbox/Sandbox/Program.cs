@@ -4,6 +4,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Sandbox World!");
+        // Scripture Memorization Program written by Chris Johnson 12/2025.
+        // Scripture class is instantiated from here.
+
+        Scripture s1 = new Scripture();
+        s1.ScriptureMenu();
     }
 }

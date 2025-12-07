@@ -6,108 +6,39 @@ using System.Security.Cryptography.X509Certificates;
 
 public class Reference
 {
+    // Reference Class is holding the active scripture Reference to be memorized.
+    // I have initialized all the variables to a scripture that is not in play to assist with troubleshooting.
+    
+    private string _book = "1st Nephi";
+    private int _chapter = 3;
+    private int _startVerse = 7;
+    private int _lastVerse = 7;
 
-/*
-    public void DisplayMenu()
+    public Reference(string rbook, int rchapter, int rstartVerse, int rlastVerse)
     {
+        _book = rbook;
+        _chapter = rchapter;
+        _startVerse = rstartVerse;
+        _lastVerse = rlastVerse;
+    }
 
-        //  This is the DisplayMenu method of the Journal class.
-        //  It loops through completing different cases based on the user choice 1-5.
-        //  All cases are handled in this method except the Write choice which is handled in the Entry class.
-        //  An entries List variable holds all the journal entries.
-        //  A file myJournal.txt holds the journal entries for long term storage. (C:\vscodeCsharp\cse210-hw\prove\Develop02\myJournal.txt)
+    public string Get(int numberOfVerses)
+    {
+        string ref1;
+        string ref2;
 
-        string _textFromUser;
-        string _nextEntry;
-        string _filename = "C:\\vscodeCsharp\\cse210-hw\\prove\\Develop02\\myJournal.txt";
-        int _userChoice = 0;
-        List<string> _entries = new List<string>();
-
-        while (_userChoice != 5)
+        if (numberOfVerses == 1)
         {
-            Console.WriteLine("Welcome to the Journal Program!");
-            Console.WriteLine("Please select one of the following choices:");
-            Console.WriteLine("1. Write");
-            Console.WriteLine("2. Display");
-            Console.WriteLine("3. Load");
-            Console.WriteLine("4. Save");
-            Console.WriteLine("5. Quit");
-            Console.Write("What would you like to do?  ");
-            _textFromUser = Console.ReadLine();
-            _userChoice = int.Parse(_textFromUser);
-
-            switch (_userChoice)
-            {
-                case 1:
-
-                    Entry e1 = new Entry();
-                    _nextEntry = e1.GetEntry();
-                    _entries.Add($"{_nextEntry} ");
-                    Console.WriteLine();
-
-                    break;
-
-                case 2:
-                    Console.WriteLine();
-
-                    foreach (string _entry in _entries)
-                    {
-                        Console.WriteLine(_entry);
-                    }
-
-                    Console.WriteLine();
-
-                    break;
-
-                case 3:
-                    Console.WriteLine();
-
-                    string[] _lines = System.IO.File.ReadAllLines(_filename);
-                    foreach (string _line in _lines)
-                    {
-                        _entries.Add($"{_line}");
-                    }
-
-                    Console.WriteLine("LoadFunction");
-                    Console.WriteLine();
-
-                    break;
-
-                case 4:
-                    Console.WriteLine();
-
-                    using (StreamWriter outputFile = File.AppendText(_filename))
-                    {
-                        foreach (string _entry in _entries)
-                        {
-                            outputFile.WriteLine($"{_entry}");
-                        }
-                    }
-
-                    Console.WriteLine("SaveFunction");
-                    Console.WriteLine();
-
-                    break;
-
-                case 5:
-
-                    Console.WriteLine();
-                    Console.WriteLine("QuitFunction");
-                    Console.WriteLine();
-
-                    break;
-
-                default:
-
-                    Console.WriteLine();
-                    Console.WriteLine("Make a different choice, Try Again");
-                    Console.WriteLine();
-
-                    break;
-            }
+            ref1 = "" + _book + " " + _chapter + ":" + _startVerse + " ";
+            return ref1;
         }
-    } */
-}  
-							
-			
+        else
+        {
+            ref2 = "" + _book + " " + _chapter + ":" + _startVerse + "-" + _lastVerse + " ";
+            return ref2;
+        }
+    }
+}
+
+
 

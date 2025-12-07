@@ -1,118 +1,211 @@
 using System;
 using System.Dynamic;
 using System.IO;
+using System.Net.Quic;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 
 public class Scripture
 {
 
-        string _nextEntry;
-        string _textScripture = "C:\\vscodeCsharp\\cse210-hw\\prove\\Develop03\\scripture.txt";
-        string _textReference = "C:\\vscodeCsharp\\cse210-hw\\prove\\Develop03\\reference.txt";
-        public string _scriptureReference;
-        List<string> _scriptureWords = new List<string>();
-        List<string> _scriptureWordsVisible = new List<string>();
-    public void ProcessChoice(int _userChoice)
+    string _textScripture1 = "Whatever principle of intelligence we attain unto in this life, it will rise with us in the resurrection.";
+    string _textScripture2 = "Whatever principle of intelligence we attain unto in this life, it will rise with us in the resurrection.  And if a person gains more knowledge and intelligence in this life through his diligence and obedience than another, he will have so much the advantage in the world to come. ";
+    public string _scriptureReference;
+    public bool _allActive = true;
+    private bool _oneVerse = true;
+    private bool _quit = false;
+    Reference r1 = new Reference("Doctrine and Covenants", 130, 18, 19);
+    Random _randomGenerator = new Random();
+    public List<Word> _scriptureWords = new List<Word>();
+    public List<int> _hiddenWords = new List<int>();
+
+    public void ScriptureMenu()
     {
+        // This is the ScriptureMenu method of the Scripture class.
+        // textScripture1 stores one verse. textScripture2 stores two verses. A Menu choice 1 or 2 decides which variable to pass to the SpliceScripture2() method.
+        // The scripture is stored in the _scriptureWords List of Word Objects.
+        // A second List -hiddenWords keeps track of how many words have had their _active attribute changed to false.
+        // When all words _active attribute become false, the _allActive variable is changed to false.
+        // _scriptureReference is retrieved from the r1 Reference Class that was constructed when the program is run. 2 methods are available to choose one or two verses.
+        // When all words in the verse are displayed as "____", then the _quit variable is changed to true.
+        // _oneVerse boolean variable determines which menu item was selected and helps determine the number of words that are in play.
+        // _RandomGenerator is utilized to pick 3 random index numbers from the list to hide for each round.
 
-        //  This is the DisplayMenu method of the Program class.
-        //  It loops through completing different cases based on the user choice 1-5.
-        //  All cases are handled in this method except the Write choice which is handled in the Entry class.
-        //  An entries List variable holds all the journal entries.
-        //  A file scripture.txt holds the scripture entry for long term storage. (C:\vscodeCsharp\cse210-hw\prove\Develop03\scripture.txt)
-        //  A file reference.txt holds the scripture reference entry for long term storage. (C:\vscodeCsharp\cse210-hw\prove\Develop03\reference.txt)
+        string textFromUser;
+        int userChoice = 0;
 
-
-        int _localUserChoice = _userChoice;
-
-
-        switch (_localUserChoice)
+        while (userChoice != 5)
         {
-            case 1:
+            Console.WriteLine("Welcome to the Scripture Memorization Program!");
+            Console.WriteLine("Please select one of the following choices:");
+            Console.WriteLine("1. Memorize one verse");
+            Console.WriteLine("2. Memorize two verses");
+            Console.WriteLine("5. Exit Program");
+            Console.WriteLine("What would you like to do?  ");
+            textFromUser = Console.ReadLine();
 
+            if (textFromUser == "quit")
+            {
+                userChoice = 5;
+            }
+            else
+            {
+                userChoice = int.Parse(textFromUser);
                 Console.WriteLine();
+            }
 
-                string[] _lines = System.IO.File.ReadAllLines(_textScripture);
-                foreach (string _line in _lines)
-                {
-                    _scriptureWords.Add($"{_line}");
-                    Console.WriteLine($"{_line}");
-                }
+            if (userChoice == 1)
+            {
+                DisplayScripture(1);
+                userChoice = 5;
+            }
 
-                Console.WriteLine();
-                Console.WriteLine("LoadFunction");
-                Console.WriteLine();
+            if (userChoice == 2)
+            {
+                _oneVerse = false;
+                DisplayScripture(2);
+                userChoice = 5;
+            }
 
+            if (userChoice == 5)
+            {
 
-                break;
-
-            case 2:
-                Console.WriteLine();
-
-                _scriptureWordsVisible = _scriptureWords;
-                
-                foreach (string _line in _scriptureWordsVisible)
-                {
-                    Console.WriteLine($"{_line}");
-                }
-
-                Console.WriteLine();
-                Console.WriteLine("GetFunction");
-                Console.WriteLine();
-
-                break;
-
-            case 3:
-                
-                Console.WriteLine();
-
-                string[] _texts = System.IO.File.ReadAllLines(_textReference);
-                foreach (string _text in _texts)
-                {
-                    _scriptureReference = _text;
-                }
-
-                Console.WriteLine();
-                Console.WriteLine("Get Scripture Reference Function : " + _scriptureReference + " .");
-                Console.WriteLine();
-
-                break;
-
-            case 4:
-
-                Console.WriteLine($" " + _scriptureReference + " ");
-
-                foreach (string _line in _scriptureWordsVisible)
-                {
-                    Console.WriteLine($"{_line}");
-                }
-
-                Console.WriteLine();
-                Console.WriteLine("Display and Memorize Scripture");
-                Console.WriteLine();
-
-                break;
-
-            case 5:
-
-                Console.WriteLine();
-                Console.WriteLine("QuitFunction");
-                Console.WriteLine();
-
-                break;
-
-            default:
-
-                Console.WriteLine();
-                Console.WriteLine("Make a different choice, Try Again");
-                Console.WriteLine();
-
-                break;
+            }
         }
-        return;
     }
-}  
-							
-			
+ 
+    public void DisplayScripture(int localUserChoice)
+    {
+        int userChoice2 = 1;
+        string textFromUser2;
+        int runCount = 1;
 
+        while (userChoice2 != 5 && _allActive == true)
+        {
+            Console.Clear();
+
+            if (runCount == 1)
+            {
+                if (localUserChoice == 1)
+                {
+                    _scriptureReference = r1.Get(1);
+                    SpliceScripture2(_textScripture1);
+                }
+
+                if (localUserChoice == 2)
+                {
+                    _scriptureReference = r1.Get(2);
+                    SpliceScripture2(_textScripture2);
+                }
+                scriptureOutputMethod();
+            }
+
+            if (_quit == true)
+            {
+                _allActive = false;
+            }
+            if (runCount != 1 && _allActive == true)
+            {
+                scriptureActiveOutputMethod();
+            }
+
+            runCount++;
+            Console.WriteLine();
+            Console.WriteLine("Press enter to continue or type 'quit' to finish: ");
+            textFromUser2 = Console.ReadLine().ToLower().Trim();
+
+            if (textFromUser2 == "quit")
+            {
+                userChoice2 = 5;
+            }
+
+            if (_allActive == false && _quit == true)
+            {
+                userChoice2 = 5;
+            }
+        }
+    }
+
+    public void SpliceScripture2(string localWord)
+    {
+        // This method takes the scripture string that is passed in and separates it into words and adds each word as a List item.
+
+        string whole = localWord;
+
+        string[] words = whole.Split(" ");
+
+        foreach (string text in words)
+        {
+            _scriptureWords.Add(new Word(text));
+        }
+    }
+
+    public void scriptureOutputMethod()
+    {
+        Console.WriteLine($"{_scriptureReference}");
+        foreach (Word word in _scriptureWords)
+        {
+            string last;
+            last = word.Display();
+            Console.Write($"{last} ");
+            Console.Write(" ");
+        }
+        Console.WriteLine();
+    }
+
+    public void scriptureActiveOutputMethod()
+    {
+        int count2 = 0;
+
+        while (count2 < 3 && _allActive == true)
+        {
+            int magicNumber = _randomGenerator.Next(0, _scriptureWords.Count);
+
+            if (_scriptureWords[magicNumber]._active == true)
+            {
+                {
+                    _scriptureWords[magicNumber].Hide();
+                    _hiddenWords.Add(magicNumber);
+                    count2++;
+                }
+
+                foreach (int number in _hiddenWords)
+                {
+                    int test5 = _hiddenWords.Count;
+
+                    if (_oneVerse)
+                    {
+                        if (test5 >= 18)
+                        {
+                            _quit = true;
+                        }
+                    }
+                    else
+                    {
+                        if (test5 >= 51)
+                        {
+                            _quit = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        // The following is needed to get the proper end to the program by displaying all the "____" words and then hitting the enter key to close out the program.
+
+        if (_quit == false && _allActive == true)
+        {
+            scriptureOutputMethod();
+        }
+
+        if (_quit == true && _allActive == true)
+        {
+            scriptureOutputMethod();
+        }
+        if (_quit == true)
+        {
+            _allActive = false;
+        }
+    }
+}

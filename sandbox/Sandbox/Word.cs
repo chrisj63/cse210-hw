@@ -6,8 +6,9 @@ using System.Security.Cryptography.X509Certificates;
 
 public class Word
 {
+  
     private string _text;
-    public bool _active = true;
+    private bool _active;
 
     public Word(string text)
     {
@@ -28,15 +29,16 @@ public class Word
         }
         else
         {
-            return new string('_', _text.Length) + " ";
+            return new string('_', _text.Length);
         }
-    }
+    } 
 
     public void Hide()
     {
         _active = false;
     }
-}
 
-
+}  
+							
+	
 
