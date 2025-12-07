@@ -11,12 +11,12 @@ public class Scripture
 
     private string _textScripture1 = "Whatever principle of intelligence we attain unto in this life, it will rise with us in the resurrection.";
     private string _textScripture2 = "Whatever principle of intelligence we attain unto in this life, it will rise with us in the resurrection.  And if a person gains more knowledge and intelligence in this life through his diligence and obedience than another, he will have so much the advantage in the world to come. ";
-    public string _scriptureReference;
-    public bool _allActive = true;
+    private string _scriptureReference;
+    private bool _allActive = true;
     private bool _oneVerse = true;
     private bool _quit = false;
-    public List<Word> _scriptureWords = new List<Word>();
-    public List<int> _hiddenWords = new List<int>();
+    private List<Word> _scriptureWords = new List<Word>();
+    private List<int> _hiddenWords = new List<int>();
 
     Reference r1 = new Reference("Doctrine and Covenants", 130, 18, 19);
     Random _randomGenerator = new Random();
