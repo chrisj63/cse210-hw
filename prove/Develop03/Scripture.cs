@@ -9,16 +9,17 @@ using System.Security.Cryptography.X509Certificates;
 public class Scripture
 {
 
-    string _textScripture1 = "Whatever principle of intelligence we attain unto in this life, it will rise with us in the resurrection.";
-    string _textScripture2 = "Whatever principle of intelligence we attain unto in this life, it will rise with us in the resurrection.  And if a person gains more knowledge and intelligence in this life through his diligence and obedience than another, he will have so much the advantage in the world to come. ";
+    private string _textScripture1 = "Whatever principle of intelligence we attain unto in this life, it will rise with us in the resurrection.";
+    private string _textScripture2 = "Whatever principle of intelligence we attain unto in this life, it will rise with us in the resurrection.  And if a person gains more knowledge and intelligence in this life through his diligence and obedience than another, he will have so much the advantage in the world to come. ";
     public string _scriptureReference;
     public bool _allActive = true;
     private bool _oneVerse = true;
     private bool _quit = false;
-    Reference r1 = new Reference("Doctrine and Covenants", 130, 18, 19);
-    Random _randomGenerator = new Random();
     public List<Word> _scriptureWords = new List<Word>();
     public List<int> _hiddenWords = new List<int>();
+
+    Reference r1 = new Reference("Doctrine and Covenants", 130, 18, 19);
+    Random _randomGenerator = new Random();
 
     public void ScriptureMenu()
     {
@@ -98,7 +99,7 @@ public class Scripture
                     _scriptureReference = r1.Get(2);
                     SpliceScripture2(_textScripture2);
                 }
-                scriptureOutputMethod();
+                ScriptureOutputMethod();
             }
 
             if (_quit == true)
@@ -107,7 +108,7 @@ public class Scripture
             }
             if (runCount != 1 && _allActive == true)
             {
-                scriptureActiveOutputMethod();
+                ScriptureActiveOutputMethod();
             }
 
             runCount++;
@@ -141,7 +142,7 @@ public class Scripture
         }
     }
 
-    public void scriptureOutputMethod()
+    public void ScriptureOutputMethod()
     {
         Console.WriteLine($"{_scriptureReference}");
         foreach (Word word in _scriptureWords)
@@ -154,7 +155,7 @@ public class Scripture
         Console.WriteLine();
     }
 
-    public void scriptureActiveOutputMethod()
+    public void ScriptureActiveOutputMethod()
     {
         int count2 = 0;
 
@@ -196,12 +197,12 @@ public class Scripture
 
         if (_quit == false && _allActive == true)
         {
-            scriptureOutputMethod();
+            ScriptureOutputMethod();
         }
 
         if (_quit == true && _allActive == true)
         {
-            scriptureOutputMethod();
+            ScriptureOutputMethod();
         }
         if (_quit == true)
         {
