@@ -8,7 +8,7 @@ public class Reference
 {
     // Reference Class is holding the active scripture Reference to be memorized.
     // I have initialized all the variables to a scripture that is not in play to assist with troubleshooting.
-    
+
     private string _book = "1st Nephi";
     private int _chapter = 3;
     private int _startVerse = 7;

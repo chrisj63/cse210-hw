@@ -75,7 +75,7 @@ public class Scripture
             }
         }
     }
- 
+
     public void DisplayScripture(int localUserChoice)
     {
         int userChoice2 = 1;
