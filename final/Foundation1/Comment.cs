@@ -3,35 +3,20 @@ using System.Reflection.Metadata;
 
 public class Comment
 {
-
+    // This is the Comment class and handles creating and displaying Comment objects.
+    //Each Comment object has a Commnetor name and a comment associated with it.
     private string _commentorName;
     private string _comment;
-    //List<Comment> _comments = new List<Comment>();
 
-   
     public Comment(string commentorName, string comment)
     {
-        _commentorName=commentorName;
-        _comment=comment;
+        _commentorName = commentorName;
+        _comment = comment;
     }
-   
-   
+
     public string DisplayComments()
     {
-             string tempText = " " + _commentorName  + " : " + _comment + " ";
-             return tempText;
+        string tempText = " " + _commentorName + " : " + _comment + " ";
+        return tempText;
     }
-
-   /* private int CountComments()
-    {
-      int numberOfComments = 0;
-
-      foreach (string comment in _comments)
-        {
-            numberOfComments++;    
-        }
-
-      return numberOfComments;
-    } */
-
 }
