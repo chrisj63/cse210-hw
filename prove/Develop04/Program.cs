@@ -8,17 +8,18 @@ class Program
     static void Main(string[] args)
     {
 
-        // Journal Entry Program written by Chris Johnson 11/2025
+        // Mindfulness Program written by Chris Johnson 12/2025
+        // Mindfulness class is instantiated from here. The MindfulnessMenu() method is called from here.
         // Random prompts for journal entries are held in myPrompts.txt file. ((C:\vscodeCsharp\cse210-hw\prove\Develop04\myPrompts.txt))
         // Using the absolute path and moving the myPrompts.txt and myJournal.txt into the base folder exceeds expectations.
         // This file is read in to the quotes list in the Entry class. (This exceeds the expectation)
 
-        Journal j1 = new Journal();
-        j1.DisplayMenu(); 
+        Mindfulness m1 = new Mindfulness();
+        m1.MindfulnessMenu(); 
     }
 
 
-
+/*
 
     public int UserOption(int _yourChoice)
     {
@@ -80,6 +81,6 @@ class Program
         
         return _timeSeconds;
     }
-
+*/
 }
 	

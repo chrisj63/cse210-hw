@@ -4,6 +4,18 @@ using System.Security.Cryptography;
 public class Breathe
 {
 
+    private string _BreatheName = "Breathing Activity.";
+    private string _BreatheDescription = "relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.";
+    
+    public string GetBreatheName()
+    {
+        return _BreatheName;
+    }
+    public string GetBreatheDescription()
+    {
+        return _BreatheDescription;
+    }
+
     public void RunBreathe()
     {
 
@@ -35,7 +47,7 @@ public class Breathe
             }
             Console.Write("\b");
             Console.WriteLine();
-            for (int j = 6; j >= 0; j -= 1)
+            for (int j = 4; j >= 0; j -= 1)
             {
                 Console.Write($"{_textBreatheOut} {j}");
                 Thread.Sleep(500);
@@ -58,6 +70,8 @@ public class Breathe
 
         return;
     }
+ 
+ /*
     public void RunBreathe(int _sessionTime)
     {
         {
@@ -113,7 +127,7 @@ public class Breathe
             Console.WriteLine();
         }
         return;
-    }
+    } */
 }
     
 

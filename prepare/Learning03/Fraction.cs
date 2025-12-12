@@ -28,7 +28,7 @@ public class Fraction
 	{
 		// Convert to Fraction to single string variable to return
         string fractionString = $"{_topNumerator}/{_bottomDenominator}";
-        return fractionString;
+        return fractionString
 	}
 	
 	public double GetFractionDecimal()

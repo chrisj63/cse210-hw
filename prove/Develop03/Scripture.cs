@@ -44,11 +44,10 @@ public class Scripture
             Console.WriteLine("2. Memorize two verses");
             Console.WriteLine("5. Exit Program");
             Console.WriteLine("What would you like to do?  ");
-            textFromUser = Console.ReadLine();
-
+            textFromUser = Console.ReadLine().ToLower().Trim();
             if (textFromUser == "quit")
             {
-                userChoice = 5;
+                userChoice = 4;
             }
             else
             {
