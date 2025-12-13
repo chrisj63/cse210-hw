@@ -10,6 +10,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        // This is the YouTube inventory program written by Chris Johnson in December 2025.
         // This is the Main method of the Program Class.
         // This class handles providing video and comment information to the Video and Comment classes.
         // The Video and Comment classes convert the data into objects and provides a way to display our inventory.
