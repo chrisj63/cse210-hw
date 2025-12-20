@@ -3,7 +3,6 @@ using System.IO;
 using System.Security.Cryptography;
 public class Reflect
 {
-
     public string GetReflectName()
     {
         return "Reflecting Activity.";
@@ -14,23 +13,19 @@ public class Reflect
         return "reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
     }
 
-
-    public void RunReflect()
+    public void RunReflect(int reflectTime)
     {
-
         // RunBreathe method of the Breathe class.
+        int timeSeconds = reflectTime;
+        string textBreatheIn = "Breathe in...";
+        string textBreatheOut = "Now Breathe out...";
 
-
-        int _timeSeconds = 30;
-        string _textBreatheIn = "Breathe in...";
-        string _textBreatheOut = "Now Breathe out...";
-
-        while (_timeSeconds > 0)
+        while (timeSeconds > 0)
         {
             Console.WriteLine();
             for (int i = 4; i >= 0; i -= 1)
             {
-                Console.Write($"{_textBreatheIn} {i}");
+                Console.Write($"{textBreatheIn} {i}");
                 Thread.Sleep(500);
                 if (i != 0)
                 {
@@ -48,7 +43,7 @@ public class Reflect
             Console.WriteLine();
             for (int j = 6; j >= 0; j -= 1)
             {
-                Console.Write($"{_textBreatheOut} {j}");
+                Console.Write($"{textBreatheOut} {j}");
                 Thread.Sleep(500);
                 if (j != 0)
                 {
@@ -62,14 +57,11 @@ public class Reflect
                 }
             }
             Console.WriteLine();
-            _timeSeconds -= 10;
-
+            timeSeconds -= 10;
         }
         Console.WriteLine();
-
         return;
     }
-
 }
-    
+
 

@@ -3,7 +3,6 @@ using System.IO;
 using System.Security.Cryptography;
 public class Listing
 {
-
     public string GetListingName()
     {
         return "Listing Activity.";
@@ -14,23 +13,19 @@ public class Listing
         return "reflect on the good things in your life by having you list as many things as you can in a certain area..";
     }
 
-
-    public void RunListing()
+    public void RunListing(int listingTime)
     {
-
         // RunBreathe method of the Breathe class.
+        int timeSeconds = listingTime;
+        string textBreatheIn = "Breathe in...";
+        string textBreatheOut = "Now Breathe out...";
 
-
-        int _timeSeconds = 30;
-        string _textBreatheIn = "Breathe in...";
-        string _textBreatheOut = "Now Breathe out...";
-
-        while (_timeSeconds > 0)
+        while (timeSeconds > 0)
         {
             Console.WriteLine();
             for (int i = 4; i >= 0; i -= 1)
             {
-                Console.Write($"{_textBreatheIn} {i}");
+                Console.Write($"{textBreatheIn} {i}");
                 Thread.Sleep(500);
                 if (i != 0)
                 {
@@ -42,13 +37,13 @@ public class Listing
                     Console.Write("\b \b"); // Erase the characters
                     Thread.Sleep(500);
                 }
-
             }
+
             Console.Write("\b");
             Console.WriteLine();
             for (int j = 6; j >= 0; j -= 1)
             {
-                Console.Write($"{_textBreatheOut} {j}");
+                Console.Write($"{textBreatheOut} {j}");
                 Thread.Sleep(500);
                 if (j != 0)
                 {
@@ -62,14 +57,11 @@ public class Listing
                 }
             }
             Console.WriteLine();
-            _timeSeconds -= 10;
-
+            timeSeconds -= 10;
         }
         Console.WriteLine();
-
         return;
     }
-    
 }
-    
+
 
